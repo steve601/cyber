@@ -7,7 +7,7 @@ import re
 
 app = Flask(__name__)
 
-model = load_model('C:/Users/odhia/OneDrive/Desktop/streamlit tut/twittModel.keras')
+model = load_model('/var/app/current/models/twittModel.keras')
 tokenizer = pickle.load(open('tokenizer.pkl','rb'))
 
 def preprocess_text(sentence):
@@ -26,7 +26,7 @@ def preprocess_text(sentence):
     # Removal of URLs
     sent = re.sub(url_pattern,'',sent)
     return sent
-    
+
 @app.route('/')
 def homepage():
     return render_template('twitter.html')
